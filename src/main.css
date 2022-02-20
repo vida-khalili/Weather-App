@@ -1,0 +1,87 @@
+h1,
+p {
+  font-family: "Quicksand", sans-serif;
+}
+
+form.searchBox {
+  margin: 20px auto;
+  width: 300px;
+}
+
+.searchBox input {
+  border-radius: 20px 0 0 20px;
+}
+.searchBox .btn-primary {
+  width: 70px;
+}
+
+.searchBox .btn-secondary {
+  width: 40px;
+  border-radius: 0 20px 20px 0;
+  text-align: center;
+  padding: 0;
+}
+.locationIcon {
+  width: 50%;
+  height: auto;
+}
+
+.currentCity {
+  color: #5a6275;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 500;
+}
+
+.todayInfo {
+  text-align: center;
+  color: #5a6275;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.todayTemp {
+  text-align: center;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.unit {
+  position: relative;
+  left: 0;
+  bottom: 0px;
+}
+.unit a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+.fa-sun {
+  position: relative;
+  top: 5px;
+  left: 3px;
+  color: #ffa726;
+  font-size: 24px;
+}
+
+.todayExtra {
+  font-size: 16px;
+  text-align: center;
+  font-weight: 500;
+  line-height: 3;
+}
+
+.dayX {
+  text-align: center;
+  line-height: 3;
+}
+
+.dayX img {
+  width: 45px;
+}
+
+.dayXtemp {
+  font-weight: 600;
+}
