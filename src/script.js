@@ -13,10 +13,15 @@ function showResult(response) {
   humid.innerHTML = `Humidity ${humidity}%`;
   let wind = document.querySelector("#wind");
   let windSpeed = Math.round(response.data.wind.speed);
-  wind.innerHTML = `wind ${windSpeed} km/h`;
+  wind.innerHTML = `Wind ${windSpeed} km/h`;
   let description = document.querySelector("#description");
-  let mainDescription = response.data.weather[0].main;
+  let mainDescription = response.data.weather[0].description;
   description.innerHTML = `${mainDescription}`;
+  let iconElement = document.querySelector("#today-icon");
+  iconElement.setAttribute(
+    "src",
+    `imgs/icons/icon_${response.data.weather[0].icon}.svg`
+  );
 }
 
 function searchDefault(city) {
