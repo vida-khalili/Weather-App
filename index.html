@@ -20,10 +20,7 @@
       rel="stylesheet"
     />
 
-    <script
-      src="https://kit.fontawesome.com/bdf175b07c.js"
-      crossorigin="anonymous"
-    ></script>
+    <script src="https://kit.fontawesome.com/bdf175b07c.js" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
@@ -40,24 +37,21 @@
                   class="form-control"
                   placeholder="Search..."
                   id="search-text"
+                  autocomplete="off"
                 />
                 <button
                   class="btn btn-primary"
                   id="search-button"
                   type="button"
                 >
-                  <i class="fas fa-search"></i>
+            <i class="fas fa-search"></i>
                 </button>
                 <button
                   class="btn btn-secondary"
                   id="location-button"
                   type="button"
                 >
-                  <img
-                    class="locationIcon"
-                    src="imgs/my_location.svg"
-                    alt="my location"
-                  />
+                <i class="fas fa-location"></i>                 
                 </button>
               </form>
               <h1 class="currentCity"></h1>
