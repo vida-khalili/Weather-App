@@ -1,10 +1,9 @@
 function showResult(response) {
   let currentCity = document.querySelector(".currentCity");
   currentCity.innerHTML = `${response.data.name}`;
-  let currentTemp = response.data.main.temp;
-  currentTemp = Math.round(currentTemp);
+  celsiusTemperature = Math.round(response.data.main.temp);
   let defaultTemp = document.querySelector("#current-temp");
-  defaultTemp.innerHTML = `${currentTemp}°`;
+  defaultTemp.innerHTML = `${celsiusTemperature}°`;
   let feels = document.querySelector("#feels");
   let feelsLike = Math.round(response.data.main.feels_like);
   feels.innerHTML = `Feels Like ${feelsLike}°`;
@@ -22,6 +21,23 @@ function showResult(response) {
     "src",
     `imgs/icons/icon_${response.data.weather[0].icon}.svg`
   );
+}
+
+function displayFahrenheit(event) {
+  event.preventDefault();
+  let fahrenheit = Math.round(celsiusTemperature * 1.8 + 32);
+  let defaultTemp = document.querySelector("#current-temp");
+  defaultTemp.innerHTML = fahrenheit;
+  fahrenheitLink.classList.add("active");
+  celsiusLink.classList.remove("active");
+}
+
+function displayCelsius(event) {
+  event.preventDefault();
+  let defaultTemp = document.querySelector("#current-temp");
+  defaultTemp.innerHTML = celsiusTemperature;
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
 }
 
 function searchDefault(city) {
@@ -63,15 +79,21 @@ if (minutes < 10) {
 }
 currentDate.innerHTML = `${day} ${hour}:${minutes}`;
 
-// Task
+let celsiusTemperature = null;
+
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", searchPosition);
 
 let searchButton = document.querySelector("#search-button");
 searchButton.addEventListener("click", searchPosition);
 
-// //Bonus Feature
 let locationButton = document.querySelector("#location-button");
 locationButton.addEventListener("click", navigate);
+
+let fahrenheitLink = document.querySelector("#unit-f");
+fahrenheitLink.addEventListener("click", displayFahrenheit);
+
+let celsiusLink = document.querySelector("#unit-c");
+celsiusLink.addEventListener("click", displayCelsius);
 
 searchDefault("Tehran");

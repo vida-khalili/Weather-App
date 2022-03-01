@@ -40,14 +40,15 @@ form.searchBox {
   line-height: 1.5;
 }
 
-.todayInfo::first-letter{
+.todayInfo::first-letter {
   text-transform: capitalize;
 }
 
-.todayTemp {
-  text-align: center;
+div .todayTemp {
+  text-align: right;
   font-size: 40px;
   font-weight: 600;
+  padding: 0;
 }
 
 .unit {
@@ -62,6 +63,15 @@ form.searchBox {
 a:hover {
   text-decoration: underline;
 }
+
+.todayTempInfo .active {
+  color: #5a6275;
+  cursor: default;
+}
+.todayTempInfo .active {
+  text-decoration: none;
+}
+
 .todayIcon {
   display: inline;
   width: 30px;
