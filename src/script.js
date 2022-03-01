@@ -3,7 +3,7 @@ function showResult(response) {
   currentCity.innerHTML = `${response.data.name}`;
   celsiusTemperature = Math.round(response.data.main.temp);
   let defaultTemp = document.querySelector("#current-temp");
-  defaultTemp.innerHTML = `${celsiusTemperature}°`;
+  defaultTemp.innerHTML = celsiusTemperature;
   let feels = document.querySelector("#feels");
   let feelsLike = Math.round(response.data.main.feels_like);
   feels.innerHTML = `Feels Like ${feelsLike}°`;
