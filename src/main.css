@@ -98,13 +98,22 @@ a:hover {
 }
 
 .dayX img {
-  width: 45px;
+  width: 30px;
 }
 
-.dayXtemp {
+.dayXtemp_max {
   font-weight: 600;
+  margin-right: 10px;
 }
 
+.dayXtemp_min{
+font-weight: 400;
+
+}
+.weather_forecast{
+  justify-content: center;
+  align-items: center;
+}
 .footer {
   font-weight: 500;
   font-size: 14px;

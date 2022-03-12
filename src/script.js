@@ -22,6 +22,28 @@ function showResult(response) {
     `imgs/icons/icon_${response.data.weather[0].icon}.svg`
   );
 }
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row weather_forecast">`;
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+                <div class="col-md-2">
+                  <p class="dayX">
+                    ${day} <br />
+                    <img src="imgs/rain.svg" alt="rain" /><br />
+                    <span class="dayXtemp_max">4°</span
+                    ><span class="dayXtemp_min">2°</span>
+                  </p>
+                </div>
+              `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
 
 function displayFahrenheit(event) {
   event.preventDefault();
@@ -97,3 +119,4 @@ let celsiusLink = document.querySelector("#unit-c");
 celsiusLink.addEventListener("click", displayCelsius);
 
 searchDefault("Tehran");
+displayForecast();
