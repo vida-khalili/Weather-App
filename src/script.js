@@ -21,24 +21,47 @@ function showResult(response) {
     "src",
     `imgs/icons/icon_${response.data.weather[0].icon}.svg`
   );
+  getForecast(response.data.coord);
 }
-function displayForecast() {
+
+function getForecast(coordinates) {
+  let apiKey = "6c60fabe649d33c314498b8aba31de6b";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
+
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  return days[day];
+}
+
+function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row weather_forecast">`;
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu"];
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `
                 <div class="col-md-2">
                   <p class="dayX">
-                    ${day} <br />
-                    <img src="imgs/rain.svg" alt="rain" /><br />
-                    <span class="dayXtemp_max">4°</span
-                    ><span class="dayXtemp_min">2°</span>
+                    ${formatDay(forecastDay.dt)} <br />
+                    <img src="imgs/icons/icon_${
+                      forecastDay.weather[0].icon
+                    }.svg" alt="rain" /><br />
+                    <span class="dayXtemp_max">${Math.round(
+                      forecastDay.temp.max
+                    )}°</span
+                    ><span class="dayXtemp_min">${Math.round(
+                      forecastDay.temp.min
+                    )}°</span>
                   </p>
                 </div>
               `;
+    }
   });
 
   forecastHTML = forecastHTML + `</div>`;
@@ -119,4 +142,3 @@ let celsiusLink = document.querySelector("#unit-c");
 celsiusLink.addEventListener("click", displayCelsius);
 
 searchDefault("Tehran");
-displayForecast();
