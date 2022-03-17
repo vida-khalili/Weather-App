@@ -1,6 +1,8 @@
-h1,
 p {
   font-family: "Quicksand", sans-serif;
+}
+.card-body{
+  box-shadow: 5px 2px 20px rgb(212, 212, 212);
 }
 
 form.searchBox {

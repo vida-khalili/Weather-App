@@ -21,6 +21,10 @@ function showResult(response) {
     "src",
     `imgs/icons/icon_${response.data.weather[0].icon}.svg`
   );
+  let fahrenheitLink = document.querySelector("#unit-f");
+  let celsiusLink = document.querySelector("#unit-c");
+   fahrenheitLink.classList.remove("active");
+   celsiusLink.classList.add("active");
   getForecast(response.data.coord);
 }
 
