@@ -1,8 +1,16 @@
+html {
+  height: 100%;
+}
+body {
+  background-image: linear-gradient(to top, #30cfd0 0%, #330867 100%);
+  /* background-repeat: no-repeat; */
+  background-size: cover;
+}
 p {
   font-family: "Quicksand", sans-serif;
 }
-.card-body{
-  box-shadow: 5px 2px 20px rgb(212, 212, 212);
+.card-body {
+  box-shadow: 5px 2px 20px rgb(46, 46, 59);
 }
 
 form.searchBox {
@@ -108,19 +116,18 @@ a:hover {
   margin-right: 10px;
 }
 
-.dayXtemp_min{
-font-weight: 400;
-
+.dayXtemp_min {
+  font-weight: 400;
 }
-.weather_forecast{
+.weather_forecast {
   justify-content: center;
   align-items: center;
 }
 .footer {
-  font-weight: 500;
+  font-weight: 600;
   font-size: 14px;
 }
 .footer a {
   text-decoration: none;
-  color: blue;
+  color: rgb(255, 255, 255);
 }
